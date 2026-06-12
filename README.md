@@ -65,17 +65,21 @@ How grading works: the offline **checks** call your functions/agents directly
 
 ## Setup
 
-Everything runs in the repo-root `uv` project; the React app uses npm.
+Prerequisites: [uv](https://docs.astral.sh/uv/) (Python) and Node.js 20+.
 
 ```bash
-# 1. Python deps are already installed via uv (google-adk, fastapi, jupyter…).
+# 1. Python deps (creates a local .venv from the lockfile):
+uv sync
 # 2. Frontend deps:
 cd frontend && npm install && cd ..
 # 3. (Live chat only) add a Gemini key — free at https://aistudio.google.com/apikey
-#    Put it in .env (repo root) :
+cp .env.example .env        # then edit .env:
 #      GOOGLE_GENAI_USE_VERTEXAI=FALSE
 #      GOOGLE_API_KEY=your_key_here
 ```
+
+`./dev.sh` will also install the frontend deps on first run, so the minimum to
+get going is: `uv sync`, add your key to `.env`, then `./dev.sh`.
 
 ## Run — React app
 
