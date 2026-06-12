@@ -6,7 +6,7 @@ const KEY = "adk-theme"
 export function getTheme(): Theme {
   const t = localStorage.getItem(KEY)
   if (t === "light" || t === "dark") return t
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  return "dark" // default to dark until the user chooses otherwise
 }
 
 export function applyTheme(t: Theme): void {

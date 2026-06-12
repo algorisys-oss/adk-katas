@@ -9,8 +9,8 @@
       // Apply theme before paint to avoid a flash of the wrong theme.
       (function () {
         try {
-          var t = localStorage.getItem("adk-theme");
-          if (t === "dark" || (!t && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+          // Default to dark; only stay light if the user explicitly chose it.
+          if (localStorage.getItem("adk-theme") !== "light") {
             document.documentElement.classList.add("dark");
           }
         } catch (e) {}
